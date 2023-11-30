@@ -145,14 +145,11 @@
 
         function trash(id) {
             const csrfToken = '{{ csrf_token }}';
-            const formData = new FormData();
-            formData.append('comment_id', id);
-            fetch('./', {
-                method: 'POST',
+            fetch(`./?id=${id}`, {
+                method: 'DELETE',
                 headers: {
                     'X-CSRFToken': csrfToken,
-                },
-                body: formData
+                }
             }).then(response => response.json())
                 .then(data => {
                     Swal.fire({

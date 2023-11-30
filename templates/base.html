@@ -13,6 +13,12 @@
 <body>
 {% block header %}
     <div class="navBar">
+        <a href="{% url 'article_home' %}">
+            <div class="navBarLogoContainer">
+                <span class="regularText">MY</span>
+                <span class="coloredText">BLOG</span>
+            </div>
+        </a>
         <div class="burger">
             <div class="navLinks">
                 <div class="userLinks">
@@ -30,6 +36,12 @@
                                     <img src="https://discordinvites.net/assets/logo/add.png" alt="add">
                                     <span type="add">Add your article</span>
                                 </div>
+                                {% if user.is_staff %}
+                                    <div class="userLoggedInPanelLink" onclick="document.location.href = '/admin'">
+                                        <img src="https://discordinvites.net/assets/logo/dashboard.png" alt="admin">
+                                        <span type="add">Admin</span>
+                                    </div>
+                                {% endif %}
                                 <div class="userLoggedInPanelLink" onclick="document.location.href = '{% url 'logout' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
                                     <img src="https://discordinvites.net/assets/logo/exit.png" alt="exit">
                                     <span type="logout">Logout</span>
