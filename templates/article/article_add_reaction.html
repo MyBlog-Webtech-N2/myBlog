@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
+    <link rel="stylesheet" href="{% static 'css/article_add_reaction.css' %}">
+    <link rel="stylesheet" href="https://discordinvites.net/node_modules/@sweetalert2/themes/dark/dark.min.css?v=896">
+{% endblock %}
+
+{% block content %}
+    <div class="reactionFormContainer">
+        <div class="reactionFormHeader">
+            <h1 class="regularText">Add a reaction</h1>
+        </div>
+        <div class="formReactionContainer">
+            <div class="formSection">
+                <h2 class="formSectionTitle regularText">Selected Article</h2>
+                <p class="help">
+                    - Name
+                    <br>
+                    - Author
+                    <br>
+                    - Date
+                    <br>
+                    - <a href="{% url 'article_detail' article_id=article.id %}">Link to selected article</a>
+                </p>
+            </div>
+            <div class="formSection">
+                <h2 class="formSectionTitle regularText" isRequired="true">Choose a reaction</h2>
+                <div class="reactionFooterContainer">
+                    {% for reaction in reactions %}
+                        <div tooltip="{{ reaction.name }}" id="reaction-{{ reaction.id }}" onclick="setReaction({{ reaction.id }})" class="reactionImgForm">
+                            <img src="/static/imgs/reactions/{{ reaction.img }}" alt="reaction">
+                        </div>
+                    {% endfor %}
+
+                </div>
+                <p class="help">- The different emojis correspond to your feelings (from 5 to 1) </p>
+            </div>
+            <div class="formSection">
+                <h2 class="formSectionTitle regularText" isRequired="true">Comment</h2>
+                <textarea id="comment" class="descriptionInput" placeholder="Make a constructive and simple description" required=""></textarea>
+                <p class="help">- Describe your feelings on the article <br>
+                                - Stay respectful (under penalty of being banned by the moderation team) </p>
+            </div>
+            <div class="formValidationContainer">
+                <a class="formValidationButton" id="submit">Submit</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="https://discordinvites.net/node_modules/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
+    <script>
+        let reaction;
+        function setReaction(react) {
+            reaction = react;
+            $(".reactionImgForm").removeClass("selected");
+            $("#reaction-" + react).addClass("selected");
+        }
+
+        $('#submit').click(() => {
+            const comment = $('#comment').val();
+            const csrfToken = '{{ csrf_token }}';
+            if (!reaction || comment.length < 1)
+                return Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Merci de remplir tous les champs"
+                    });
+            const formData = new FormData();
+            formData.append('article', {{ article.id }});
+            formData.append('star', reaction);
+            formData.append('author', {{ user.pk }});
+            formData.append('content', comment);
+            fetch('./', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                },
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Réaction Added',
+                        text: data.message,
+                        allowOutsideClick: false
+                    }).then(() => {
+                        document.location.href = '{% url 'article_detail' article_id=article.id %}'
+                    })
+                })
+            .catch(error => console.error('Erreur :', error));
+        })
+    </script>
+{% endblock %}

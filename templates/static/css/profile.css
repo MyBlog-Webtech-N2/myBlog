@@ -1,0 +1,139 @@
+.pageBody {
+padding-top: 75px;
+}
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ffffff0d;
+    margin: 1em auto;
+    padding: 0;
+    width: 90%;
+}
+.profileContainer {
+    position: relative;
+    padding-top: 30px;
+    width: 60%;
+    margin: 0 auto 200px
+}
+.profilePicture {
+    margin-left: 15px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    position: absolute;
+    overflow: hidden;
+    border: 5px solid #131416
+}
+.profilePicture img {
+    background-color: #18191c;
+    height: 100%;
+    width: 100%
+}
+.profileCreatedAt {
+    display: flex;
+    position: absolute;
+    bottom: -30px;
+    right: 0;
+    background-color: #5764f1;
+    padding: 3px 8px;
+    font-weight: bolder;
+    text-transform: uppercase;
+    border-bottom-left-radius: 7.5px;
+    border-bottom-right-radius: 7.5px;
+    cursor: pointer
+}
+.profileBody {
+    margin-top: 50px;
+    padding-top: 60px;
+    width: calc(100% - 20px);
+    padding-left: 20px;
+    background-color: #2a2c30;
+    border-bottom-left-radius: 7.5px;
+    border-top-left-radius: 7.5px;
+    border-top-right-radius: 7.5px;
+    display: flex;
+    flex-direction: column
+}
+.profileRow {
+    position: relative;
+    display: flex;
+    width: calc(100% - 15px);
+    padding-right: 15px;
+    align-items: center
+}
+.profileOwner {
+    display: flex;
+    align-items: flex-start
+}
+.ruleContainer {
+    margin-right: 5px;
+    line-height: 10px;
+    align-items: center;
+    cursor: pointer
+}
+
+.ruleContainer img {
+    position: relative;
+    top: 6px;
+    width: 20px;
+    height: 20px
+}
+.section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin: 0 auto;
+    position: relative
+}
+
+.section h4 {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    text-transform: uppercase;
+    font-weight: bolder
+}
+
+.serverList {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding-bottom: 20px;
+    margin-left: -10px;
+    justify-content: center
+}
+.server {
+    display: flex;
+    width: 60px;
+    height: 60px;
+    margin: 5px 5px;
+    border: 3px solid transparent;
+    -webkit-transition: all .2s;
+    -moz-transition: all .2s;
+    transition: all .2s;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center
+}
+
+.server:hover {
+    border: 3px solid rgba(255, 255, 255, .8)
+}
+
+.server img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    cursor: pointer
+}
+
+.server a {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center
+}

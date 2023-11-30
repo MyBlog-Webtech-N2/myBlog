@@ -17,7 +17,7 @@ class ArticleReaction(LoginRequiredMixin, View):
             {'id': 2, 'img': "not-bad.png", 'name': 'Not Bad'},
             {'id': 1, 'img': "bad.png", 'name': 'Bad'},
         ]
-        return render(request, 'article_add_reaction.html', {'article': article, 'reactions': reactions})
+        return render(request, 'article/article_add_reaction.html', {'article': article, 'reactions': reactions})
 
     def post(self, request, *args, **kwargs):
         article_id = request.POST.get('article')

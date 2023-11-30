@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+        <link rel="stylesheet" href="{% static 'css/profile.css' %}">
+        <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="pageBody">
+        <div class="profileContainer">
+            <div class="profilePicture">
+                <img src="https://picsum.photos/200" alt="Crésus">
+            </div>
+            <div class="profileCreatedAt">
+                <span class="regularText">{{ profile.date_joined }}</span>
+            </div>
+            <div class="profileBody">
+                <div class="profileRow">
+                    <div class="profileOwner">
+                        {% if profile.is_staff %}
+                            <div tooltip="Staff" class="ruleContainer">
+                                <img src="https://discordinvites.net/assets/logo/admin.png" alt="admin">
+                            </div>
+                        {% endif %}
+                        <h2 class="regularText">{{ profile.get_username|capfirst }}</h2>
+                    </div>
+                </div>
+                <hr>
+                <div class="section">
+                    <h4 class="lightText">Articles Added </h4>
+                    <div class="serverList">
+                        {% for article in articles %}
+                            <div tooltip="{{ article.title|capfirst }}" class="server">
+                                <a href="{% url 'article_detail' article_id=article.id %}">
+                                    <img src="https://picsum.photos/200" alt="{{ article.title }}">
+                                </a>
+                            </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

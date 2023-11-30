@@ -37,7 +37,7 @@ class ArticleHome(View):
 
 class ArticleAdd(LoginRequiredMixin, View):
     def get(self, request):
-        return render(request, "add_article.html")
+        return render(request, "article/add_article.html")
 
     def post(self, request, *args, **kwargs):
         author = get_object_or_404(CustomUser, pk=self.request.user.pk)
@@ -53,7 +53,7 @@ class ArticleAdd(LoginRequiredMixin, View):
 class ArticleDetail(View):
     def get(self, request, article_id):
         article = get_object_or_404(Article, pk=article_id)
-        return render(request, 'article_detail.html', {'article': article})
+        return render(request, 'article/article_detail.html', {'article': article})
 
     def delete(self, request, *args, **kwargs):
         try:

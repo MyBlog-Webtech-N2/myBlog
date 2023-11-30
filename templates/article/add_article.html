@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
+    <link rel="stylesheet" href="{% static 'css/article_add_reaction.css' %}">
+    <link rel="stylesheet" href="https://discordinvites.net/node_modules/@sweetalert2/themes/dark/dark.min.css?v=896">
+{% endblock %}
+
+{% block content %}
+    <div class="reactionFormContainer">
+        <div class="reactionFormHeader">
+            <h1 class="regularText">Add a article</h1>
+        </div>
+        <div class="formReactionContainer">
+            <div class="formSection">
+                <h2 class="formSectionTitle regularText" isRequired="true">The name of article</h2>
+                <label>
+                    <input id="title" class="tagInput" type="text" placeholder="Name of article"/>
+                </label>
+            </div>
+            <div class="formSection">
+                <h2 class="formSectionTitle regularText" isRequired="true">Content</h2>
+                <textarea id="content" class="descriptionInput" placeholder="Make a constructive and simple content"
+                          required=""></textarea>
+                <p class="help">- Describe your feelings on the article <br>
+                    - Stay respectful (under penalty of being banned by the moderation team) </p>
+            </div>
+            <div class="formValidationContainer">
+                <a class="formValidationButton" id="submit">Submit</a>
+            </div>
+        </div>
+
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script src="https://discordinvites.net/node_modules/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
+    <script>
+        $('#submit').click(() => {
+            const content = $('#content').val();
+            const title = $('#title').val();
+            const csrfToken = '{{ csrf_token }}';
+            if (title.length < 1 || content.length < 1)
+                return Swal.fire({
+                      icon: "error",
+                      title: "Oops...",
+                      text: "Merci de remplir tous les champs"
+                    });
+            const formData = new FormData();
+            formData.append('title', title);
+            formData.append('content', content);
+            formData.append('author', {{ user.pk }});
+            fetch('./', {
+                method: 'POST',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                },
+                body: formData
+            }).then(response => response.json())
+                .then(data => {
+                        Swal.fire({
+                            icon: 'success',
+                            title: 'Article Added',
+                            text: data.message,
+                            allowOutsideClick: false
+                        }).then(() => {
+                            document.location.href = '{% url 'article_home' %}'
+                        })
+                    })
+                .catch(error => console.error('Erreur :', error));
+        })
+
+    </script>
+{% endblock %}
