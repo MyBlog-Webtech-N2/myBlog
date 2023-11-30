@@ -8,13 +8,20 @@
 
 {% block content %}
 
-    <form id="contact-form" method="post">
-         {% csrf_token %}
-          {{ form.as_p }}
-      <button type="submit">Submit</button>
-    </form>
-
     <div class="pageBody">
+    <div class="serversSearchContainer">
+        <div class="serversSearchContent">
+            <form method="post" action="{% url 'article_home' %}">
+                {% csrf_token %}
+                <div class="serverSearchContainer">
+                    {{ form.search_term  }}
+                    <button class="advancedSearchButton" type="submit">
+                        <span class="regularText">Search</span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
     <div class="articleList">
         <div class="articlesContainer">
 

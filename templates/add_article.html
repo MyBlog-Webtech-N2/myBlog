@@ -65,7 +65,7 @@
                             text: data.message,
                             allowOutsideClick: false
                         }).then(() => {
-                            document.location.href = '{% url 'blog_home' %}'
+                            document.location.href = '{% url 'article_home' %}'
                         })
                     })
                 .catch(error => console.error('Erreur :', error));

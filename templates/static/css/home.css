@@ -1,4 +1,9 @@
 
+button, a {
+  border-width: 0;
+}
+
+
 .pageBody {
     display: flex;
     flex-direction: column;
@@ -185,4 +190,94 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
+}
+
+.serversSearchContainer {
+    position: relative;
+    display: flex;
+    margin: 50px auto 0;
+    width: 100%;
+    justify-content: center
+}
+
+.serversSearchContent {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+form {
+    display: contents;
+}
+
+.serverSearchContainer {
+    width: 70%;
+    margin-top: 20px;
+    display: flex
+}
+
+.serverSearchContainer input {
+    border: 0 solid transparent;
+    width: 100%;
+    padding-left: 10px;
+    border-bottom-left-radius: 7.5px;
+    border-top-left-radius: 7.5px
+}
+
+.serverSearchContainer input, .serverSearchContainer select {
+    background-color: #36393f;
+    color: #e6e6e6;
+    font-size: 15px;
+    padding: 13px;
+    border: solid 2px rgba(255, 255, 255, .05)
+}
+
+.serverSearchContainer select {
+    border-radius: 7.5px
+}
+
+.serverSearchContainer input::placeholder {
+    color: rgb(128, 128, 128)
+}
+
+.serverSearchContainer input:focus {
+    outline: 0
+}
+
+.serverSearchContainer select {
+    width: 35%;
+    margin-left: 5px;
+    padding-left: 5px
+}
+
+.serverSearchContainer select:focus {
+    outline: 0
+}
+
+.serverSearchContainer select label:hover {
+    background-color: red
+}
+
+.advancedSearchButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #e6e6e6;
+    padding: 10px 0;
+    background-color: #5764f1;
+    width: 20%;
+    border-bottom-right-radius: 7.5px;
+    border-top-right-radius: 7.5px;
+    transition: ease-in-out;
+    transition-duration: .1s;
+    font-weight: 700
+}
+
+.advancedSearchButton:hover {
+    cursor: pointer;
+    background-color: #4c57d4;
+    color: #e6e6e6
 }

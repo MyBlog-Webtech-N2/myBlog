@@ -1,16 +1,25 @@
+from django.db.models import Q
 from django.views import View
 from django.shortcuts import render, get_object_or_404
 
 from reaction.models import Comment
-from .forms import ArticleForm
+from .forms import ArticleForm, ArticleSearchForm
 from .models import Article, CustomUser
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
-class Home(View):
+class ArticleHome(View):
     def get(self, request):
-        return render(request, 'home.html', {'posts': Article.objects.filter(active=True)})
+        form = ArticleSearchForm()
+        return render(request, 'home.html', {'form': form, 'posts': Article.objects.filter(active=True)})
+
+    def post(self, request):
+        form = ArticleSearchForm(request.POST)
+        if form.is_valid():
+            search_term = form.cleaned_data['search_term']
+            articles = Article.objects.filter(Q(title__icontains=search_term) | Q(content__icontains=search_term))
+            return render(request, 'home.html', {'form': form, 'posts': articles})
 
 
 class ArticleAdd(LoginRequiredMixin, View):

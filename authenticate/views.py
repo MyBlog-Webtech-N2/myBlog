@@ -10,17 +10,17 @@ class InscriptionView(View):
 
     def get(self, request):
         if self.request.user.is_authenticated:
-            return redirect('blog_home')
+            return redirect('article_home')
         form = CustomUserCreationForm()
         return render(request, 'registration/inscription.html', {'form': form})
 
     def post(self, request):
         if self.request.user.is_authenticated:
-            return redirect('blog_home')
+            return redirect('article_home')
         form = CustomUserCreationForm(request.POST)
         print(form.is_valid())
         if form.is_valid():
             utilisateur = form.save()
             login(request, utilisateur)
-            return redirect('blog_home')
+            return redirect('article_home')
         return render(request, 'registration/inscription.html', {'form': form})
