@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
+{% endblock %}
+
+{% block content %}
+
+    <div class="pageBody">
+    <div class="articleList">
+        <div class="articlesContainer">
+
+            {% for article in articles %}
+                <div class="articleCard">
+                <div class="articleHeaderContainer">
+                    {% if article.date %}
+                    <div class="articleCreated lightText">
+                        <h4 tooltip="Créé il y a" flow="left">{{ article.time_since_created }}</h4>
+                    </div>
+                    {% endif %}
+                    <div class="articleActions">
+                        <a href="{% url 'article_detail' article_id=article.id %}">
+                            <img alt="ArticleIcon" src="{% if article.icon %} {{ article.icon.url }} {% else %}/static/imgs/logo/no-image-icon-23494.png{% endif %}" draggable="false">
+                        </a>
+                        <a href="{% url 'dashboard_article' article_id=article.id %}" class="articleButtonContainer">
+                            <div class="articleOpenButton">
+                            Modifier l'article </div>
+                        </a>
+                    </div>
+                    <div class="articleBackgroundImage" style="filter: blur(0px);">
+                        <img src="{% if article.image %} {{ article.image.url }} {% else %}/static/imgs/logo/Image_not_available.png{% endif %}" alt="articleBackground" draggable="false">
+                    </div>
+                </div>
+                <div class="content">
+                    <div class="articleTitle">
+                        <h3>{{ article.title }}</h3>
+                    </div>
+                    <div class="articleDescription">
+                        <p>{{ article.content | safe }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

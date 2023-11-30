@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block head %}
+    <link rel="stylesheet" href="{% static 'css/dashboard_reactions.css' %}">
+    <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
+{% endblock %}
+
+{% block content %}
+    <div class="pageContainer">
+        <div class="reactionsContainer">
+            {% for comment in comments %}
+                <div class="reactions">
+                    <div class="reactionHeader">
+                        <a>
+                            <div class="serverIcon">
+                                <img alt="serverIcon"
+                                     src="https://cdn.discordapp.com/icons/552234803676577815/28b04cdb3f6f91b03d1e2a45c9eb0402">
+                            </div>
+                        </a>
+
+                        <div class="serverinfos">
+                            <h2 class="regularText">{{ comment.article.title|capfirst }}</h2>
+                            <a href="{% url 'profile' user_id=comment.author_id %}">
+                                <div class="reactionAuthor" tooltip="Commentateur">
+                                    <span>{{ comment.author.get_username|capfirst }}</span>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="reactionImg" tooltip="{{ comment.get_star_name }}">
+                            <img src="/static/imgs/reactions/{{ comment.get_image }}" alt="reactionImg">
+                        </div>
+                    </div>
+                    <div class="reactionComment">
+                        <p>{{ comment.content | safe }}</p>
+                    </div>
+                    <div class="reactionDate">
+                        <span tooltip="Last modification" class="regularText">{{ comment.created_at }}</span>
+                        <a class="serverJoinButtonContainer"
+                           onclick="trash({{ comment.id }})">
+                            <div class="serverJoinButton">
+                                Delete
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+
+{% block script %}
+    <script>
+        function trash(id) {
+            const csrfToken = '{{ csrf_token }}';
+            fetch(`${window.location.href}?id=${id}`, {
+                method: 'DELETE',
+                headers: {
+                    'X-CSRFToken': csrfToken,
+                }
+            }).then(response => response.json())
+                .then(data => {
+                    Swal.fire({
+                        icon: data.message ? 'success' : 'error',
+                        title: 'Comment Removed',
+                        text: data.message ?? data.error,
+                        allowOutsideClick: false
+                    }).then(() => {
+                        document.location.reload()
+                    })
+                })
+                .catch(error => console.error('Erreur :', error));
+        }
+    </script>
+{% endblock %}

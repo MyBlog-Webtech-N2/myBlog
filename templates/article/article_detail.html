@@ -147,7 +147,7 @@
 
         function trash(id) {
             const csrfToken = '{{ csrf_token }}';
-            fetch(`./?id=${id}`, {
+            fetch(`${window.location.href}?id=${id}`, {
                 method: 'DELETE',
                 headers: {
                     'X-CSRFToken': csrfToken,

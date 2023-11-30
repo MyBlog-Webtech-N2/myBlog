@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}Mon Site{% endblock %}</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://discordinvites.net/node_modules/@sweetalert2/themes/dark/dark.min.css?v=896">
     <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% block head %}{% endblock %}
 </head>
@@ -32,7 +33,8 @@
                                 </div>
                             </div>
                             <div class="userLoggedInPanel" style="display: none;">
-                                <div class="userLoggedInPanelLink" onclick="document.location.href = '{% url 'article_add' %}'">
+                                <div class="userLoggedInPanelLink"
+                                     onclick="document.location.href = '{% url 'article_add' %}'">
                                     <img src="https://discordinvites.net/assets/logo/add.png" alt="add">
                                     <span type="add">Add your article</span>
                                 </div>
@@ -42,14 +44,25 @@
                                         <span type="add">Admin</span>
                                     </div>
                                 {% endif %}
-                                <div class="userLoggedInPanelLink" onclick="document.location.href = '{% url 'logout' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
+                                <div class="userLoggedInPanelLink"
+                                     onclick="document.location.href = '{% url 'dashboard' %}'">
+                                    <img src="https://discordinvites.net/assets/logo/dashboard.png" alt="dashboard">
+                                    <span type="add">Dashboard</span>
+                                </div>
+                                <div class="userLoggedInPanelLink"
+                                     onclick="document.location.href = '{% url 'logout' %}?next=
+                                             {% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
                                     <img src="https://discordinvites.net/assets/logo/exit.png" alt="exit">
                                     <span type="logout">Logout</span>
                                 </div>
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">
+                        <a href="{% url 'login' %}?next=
+
+
+
+                                {% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">
                             <div class="userLoginButton">LOGIN</div>
                         </a>
                     {% endif %}
@@ -64,6 +77,8 @@
 
 {% block script %}
 {% endblock %}
+<script src="https://discordinvites.net/node_modules/sweetalert2/dist/sweetalert2.min.js"
+        type="text/javascript"></script>
 <script>
     const userLoggedInPanel = $(".userLoggedInPanel");
     const userLoggedInPanelContainer = $(".userLoggedInPanelContainer");

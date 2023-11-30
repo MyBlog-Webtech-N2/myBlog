@@ -1,0 +1,146 @@
+.pageContainer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 105px
+}
+.reactionsContainer {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px;
+    margin: 50px;
+    align-items: center
+}
+.reactions {
+    display: flex;
+    width: 400px;
+    height: 230px;
+    background-color: #2a2c30;
+    border-radius: 7.5px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, .16), 0 3px 6px rgba(0, 0, 0, .23);
+    padding: 10px;
+    flex-direction: column;
+    margin: 20px
+}
+.reactionHeader {
+    display: flex;
+    flex-direction: row;
+    height: 255px;
+    width: 100%;
+    align-items: center;
+    background-color: #36393f;
+    border-radius: 10px
+}
+.serverIcon {
+    width: 80px;
+    height: 80px;
+    overflow: hidden;
+    border-radius: 7.5px
+}
+
+.serverIcon img {
+    width: 100%;
+    height: 100%
+}
+.serverinfos {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    width: 240px
+}
+
+.serverinfos span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis
+}
+
+.serverinfos h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    text-align: start
+}
+.reactionAuthor {
+    display: flex;
+    width: fit-content;
+    max-width: 230px;
+    flex-direction: row;
+    align-items: center;
+    padding: 3px 10px 3px 3px;
+    cursor: pointer;
+    border-radius: 30px;
+    background-color: #23272a
+}
+
+.reactionAuthor span {
+    margin-left: 5px;
+    color: #fff;
+    transition: all .2s
+}
+.reactionImg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 4px solid #fff;
+    cursor: pointer
+}
+.reactionImg img {
+    width: 100%;
+    height: 100%
+}
+.reactionComment {
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin-top: 5px;
+    height: 370px;
+    overflow-y: auto;
+    color: #b9bbbe;
+    border: solid 1px #3f414485;
+    border-radius: 5px;
+    background-color: #2e3136
+}
+
+.reactionDate {
+    display: flex;
+    position: relative
+}
+
+.reactionDate span {
+    font-weight: bolder;
+    border-radius: 5px;
+    padding: 3px 6px;
+    background-color: #23272a;
+    cursor: pointer;
+    margin-top: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    margin-right: 50px;
+    color: #b1b1b1
+}
+.serverJoinButtonContainer {
+    position: absolute;
+    right: 0;
+    top: 8px
+}
+
+.serverJoinButton {
+    background-color: #cf4f4f;
+    padding: 5px 15px;
+    border-radius: 7.5px;
+    transition: ease-in-out .2s;
+    color: #e6e6e6
+}
+
+.serverJoinButton:hover {
+    cursor: pointer;
+    background-color: #ce5959
+}

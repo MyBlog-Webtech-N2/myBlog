@@ -20,3 +20,6 @@ class Comment(models.Model):
             "very-cool.png"
         ]
         return images[self.star - 1]
+
+    def get_star_name(self):
+        return ["Bad", "Not Bad", "Good", "Cool", 'Very Cool'][self.star - 1]

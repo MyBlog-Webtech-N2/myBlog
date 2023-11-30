@@ -12,4 +12,4 @@ class ArticleForm(forms.ModelForm):
 
 class ArticleSearchForm(forms.Form):
     search_term = forms.CharField(max_length=100, required=False, label='Search',
-                                  widget=forms.TextInput(attrs={'placeholder': 'Search for a title or q content'}))
+                                  widget=forms.TextInput(attrs={'placeholder': 'Search for a title or a content'}))

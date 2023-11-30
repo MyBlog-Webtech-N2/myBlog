@@ -131,6 +131,34 @@ div.selected {
     transition: all .2s
 }
 
+.formButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 40px;
+    color: #fff;
+    border-radius: 10px;
+    font-size: 18px;
+    border: 2px solid #333;
+    cursor: pointer;
+    transition: all .2s;
+    margin: 10px;
+}
+.formButton[green] {
+    background-color: #43b581;
+}
+.formButton[blue] {
+    background-color: #5764f1;
+}
+.formButton[red] {
+    background-color: #cf4f4f
+}
+.formButton:hover {
+    filter: saturate(.6);
+    color: #fff
+}
+
 .formValidationButton:hover {
     filter: saturate(.6);
     color: #fff

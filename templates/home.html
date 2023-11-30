@@ -4,7 +4,6 @@
 {% block head %}
     <link rel="stylesheet" href="{% static 'css/home.css' %}">
     <link rel="stylesheet" href="{% static 'css/tooltips.css' %}">
-    <link rel="stylesheet" href="https://discordinvites.net/node_modules/@sweetalert2/themes/dark/dark.min.css?v=896">
 {% endblock %}
 
 {% block content %}
@@ -72,11 +71,10 @@
 {% endblock %}
 
 {% block script %}
-    <script src="https://discordinvites.net/node_modules/sweetalert2/dist/sweetalert2.min.js" type="text/javascript"></script>
     <script>
     function trash(id) {
             const csrfToken = '{{ csrf_token }}';
-            fetch(`./?id=${id}`, {
+            fetch(`${window.location.href}?id=${id}`, {
                 method: 'DELETE',
                 headers: {
                     'X-CSRFToken': csrfToken,

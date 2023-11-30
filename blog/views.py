@@ -59,7 +59,7 @@ class ArticleDetail(View):
         try:
             comment_id = request.GET.get('id')
             comment = get_object_or_404(Comment, pk=comment_id)
-            if comment and comment.author_id == self.request.user.pk:
+            if comment.author_id == self.request.user.pk:
                 comment.delete()
                 return JsonResponse({'message': 'Commentaire supprimer avec succès'})
             else:
