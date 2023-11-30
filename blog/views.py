@@ -2,6 +2,7 @@ from django.views import View
 from django.shortcuts import render, get_object_or_404
 
 from reaction.models import Comment
+from .forms import ArticleForm
 from .models import Article, CustomUser
 from django.http import JsonResponse
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -17,19 +18,14 @@ class ArticleAdd(LoginRequiredMixin, View):
         return render(request, "add_article.html")
 
     def post(self, request, *args, **kwargs):
-        try:
-            title = request.POST.get('title')
-            content = request.POST.get('content')
-            author = get_object_or_404(CustomUser, pk=self.request.user.pk)
-
-            new_article = Article(title=title, content=content, author=author)
-            new_article.save()
-
-            response_data = {'message': 'Article ajoutée avec succès'}
-            return JsonResponse(response_data)
-
-        except KeyError:
-            return JsonResponse({'error': 'Certains champs sont manquants'}, status=400)
+        author = get_object_or_404(CustomUser, pk=self.request.user.pk)
+        form = ArticleForm(request.POST, initial={'author': author})
+        if form.is_valid():
+            article = form.save(commit=False)
+            article.author = author
+            article.save()
+            return JsonResponse({'message': 'Article ajoutée avec succès'})
+        return JsonResponse({'error': 'Certains champs sont manquants'}, status=400)
 
 
 class ArticleDetail(View):

@@ -16,12 +16,6 @@ class ArticleAdminForm(forms.ModelForm):
 @admin.register(Article)
 class ArticleAdmin(admin.ModelAdmin):
     form = ArticleAdminForm
-    list_display = ('title', 'date', 'active')
-    list_filter = ('active',)
+    list_display = ('title', 'author', 'date', 'active')
+    list_filter = ('author', 'active')
     search_fields = ('title',)
-
-
-@admin.register(Comment)
-class CommentAdmin(admin.ModelAdmin):
-    list_display = ('article', 'author', 'star')
-    list_filter = ('article', 'author')
