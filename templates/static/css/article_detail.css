@@ -1,0 +1,438 @@
+
+.serverInfosContainer {
+    position: relative;
+    display: flex;
+    width: 100%;
+    margin: 75px 0;
+    justify-content: center;
+    flex-direction: column
+}
+
+.serverInfosBackground {
+    position: absolute;
+    top: 0;
+    display: flex;
+    width: 100%;
+    height: 300px;
+    background-color: #232528;
+    justify-content: center;
+    border-bottom: solid 3px #e6e6e6;
+    overflow: hidden
+}
+
+
+.serverInfosName {
+    position: absolute;
+    display: inline-block;
+    background-color: rgba(0, 0, 0, .4);
+    border-radius: 7.5px;
+    font-size: 2em;
+    text-transform: uppercase;
+    font-weight: bolder;
+    color: #e6e6e6;
+    bottom: 10px;
+    left: 265px;
+    padding: 3px 10px;
+    z-index: 2;
+    max-width: 50%;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex-wrap: nowrap;
+    overflow: hidden
+}
+
+.serverInfosBackgroundImg {
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-filter: blur(10px);
+    filter: blur(10px)
+}
+
+.serverInfosIcon {
+    position: absolute;
+    top: 220px;
+    left: 100px;
+    width: 153px;
+    height: 153px;
+    border-radius: 50%;
+    border: solid 3px #e6e6e6;
+    background: #2f3136
+}
+
+.serverInfosIcon img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%
+}
+
+.serverInfos {
+    position: absolute;
+    top: 315px;
+    left: 270px;
+    display: flex;
+    color: #e6e6e6;
+    flex-direction: column;
+    width: 57%;
+    flex-wrap: wrap
+}
+
+.serverInfosRow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap
+}
+
+.serverInfosItem {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    margin: 4px;
+    background-color: rgba(0, 0, 0, .3);
+    border-radius: 7.5px;
+    padding: 3px 7px;
+    color: #e6e6e6;
+    cursor: pointer
+}
+
+.serverInfosItem:hover .serverInfosLogo img {
+    filter: brightness(1)
+}
+
+.serverInfosLogo {
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+    margin-right: 5px
+}
+
+.serverInfosLogo img {
+    width: 100%;
+    height: 100%;
+    transition: all ease-in-out .1s;
+    border-radius: 50%;
+    filter: brightness(.8)
+}
+
+.serverInfosContent {
+    margin-top: 350px;
+    display: flex;
+    padding: 50px 100px;
+    flex-direction: column
+}
+
+.serverInfosPart {
+    margin: 10px 0
+}
+
+.serverInfosPartDrop {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 20px;
+    cursor: pointer
+}
+
+.serverInfosPartDrop span {
+    border-bottom: 2px solid #5764f1
+}
+
+.serverInfosPartDrop:hover img {
+    filter: brightness(1);
+    border-radius: 50%
+}
+
+.serverInfosPartDrop img {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    padding: 2px;
+    filter: brightness(.5)
+}
+
+.serverDescriptionContent {
+    color: #8896a0;
+    font-size: 1em;
+    word-wrap: break-word;
+    flex-wrap: wrap
+}
+
+.serverDescriptionContent img {
+    max-width: 100%
+}
+
+
+.h2 {
+    display: block;
+    font-size: 1.5em;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    margin-inline-start: 0;
+    margin-inline-end: 0;
+    font-weight: 700;
+}
+
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ffffff0d;
+    margin: 1em auto;
+    padding: 0;
+    width: 90%;
+}
+
+.serverInfosPartDrop {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    margin-bottom: 20px;
+    cursor: pointer
+}
+
+.serverInfosPartDrop span {
+    border-bottom: 2px solid #5764f1
+}
+
+.serverInfosPartDrop:hover img {
+    filter: brightness(1);
+    border-radius: 50%
+}
+
+.serverInfosPartDrop img {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    padding: 2px;
+    filter: brightness(.5)
+}
+
+.reactionResumeContainer {
+    display: flex;
+    flex-direction: row;
+    color: #e6e6e6;
+    width: 100%
+}
+
+.reactionResumeLeft, .reactionResumeRight {
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.reactionResumeLeft {
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    flex: .3
+}
+
+.reactionResumeLeft div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px
+}
+
+.reactionResumeLeft span {
+    position: relative;
+    bottom: 15px;
+    left: 3px
+}
+
+.reactionResumeLeft h2 {
+    font-size: 4em;
+    font-weight: bolder
+}
+
+.reactionResumeLeft h2 span {
+    position: relative;
+    top: 0;
+    font-size: 17px
+}
+
+.reactionResumeRight {
+    flex-direction: column;
+    flex: .7
+}
+
+.progressBarContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 90%;
+    margin: 3px 0
+}
+
+.progressBarContainer img {
+    width: 18px;
+    height: 18px;
+    filter: grayscale(1);
+    animation: ease-in-out .1s;
+    cursor: pointer
+}
+
+.progressBarContainer img:hover {
+    filter: grayscale(0)
+}
+
+.progressBar {
+    display: flex;
+    width: 90%;
+    height: 5px;
+    margin: 0 10px;
+    background-color: #292b2f;
+    border-radius: 7.5px
+}
+
+.bar {
+    transition: width .5s;
+    -webkit-transition: width .5s;
+    height: 100%;
+    background-color: #5764f1;
+    border-radius: 7.5px
+}
+
+.addReactionButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bolder;
+    text-transform: uppercase;
+    padding: 10px 14px;
+    transition: .1s ease-in-out;
+    border-radius: 7.5px;
+    background-color: #5764f1;
+    color: #e6e6e6;
+    margin: 0 !important;
+    text-align: center
+}
+
+.addReactionButton:hover {
+    background-color: #5764f1c4
+}
+
+.reactionResumeLeftReaction img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 2px solid #5865f2;
+}
+
+.reactionsContainer {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    padding: 10px 0;
+    flex-direction: column
+}
+
+.reaction {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 20px 0
+}
+
+.reaction .regularText {
+    text-align: inherit !important
+}
+
+.reactionInfos {
+    display: flex;
+    flex-direction: row;
+    height: 60px
+}
+
+.reactionInfosText {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 10px
+}
+
+.reactionInfosTextUp {
+    display: flex;
+    flex-direction: row
+}
+
+.reactionUserName {
+    font-size: 18px;
+    font-weight: bolder;
+    color: #e6e6e6
+}
+
+.reactionEmojiContainer {
+    display: flex;
+    position: relative;
+    margin-left: 5px
+}
+
+.reactionEmoji {
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+.reactionEmoji img {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, .3);
+    cursor: pointer;
+    filter: grayscale(1);
+    opacity: .3;
+    transition: all ease-in-out .1s
+}
+
+.reactionEmoji img:hover {
+    opacity: 1
+}
+
+.selected img {
+    filter: grayscale(0);
+    opacity: 1
+}
+
+.reactionDate {
+    font-size: 12px;
+    color: rgb(136, 150, 160)
+}
+
+.reactionContent {
+    display: flex;
+    margin-left: 54px
+}
+
+.reactionOptions {
+    display: none;
+    position: absolute;
+    top: 15px;
+    right: 5%;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.reactionOptions img {
+    width: 100%;
+    height: 100%;
+    filter: brightness(.8);
+}
+
+.reactionOptions:hover img {
+    filter: brightness(1);
+}
+
+.reaction:hover .reactionOptions {
+    display: flex
+}

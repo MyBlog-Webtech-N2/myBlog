@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Mon Site{% endblock %}</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    {% block head %}{% endblock %}
+</head>
+<body>
+{% block header %}
+    <div class="navBar">
+        <div class="burger">
+            <div class="navLinks">
+                <div class="userLinks">
+                    {% if user.is_authenticated %}
+                        <div class="userLoggedInPanelContainer">
+                            <div class="userLoggedInProfile">
+                                <img alt="{{ user.username }}"
+                                     src="https://picsum.photos/200">
+                                <div class="userLoggedInProfilePart">
+                                    <span class="regularText" style="width: 110px;">{{ user.username|capfirst }}</span>
+                                </div>
+                            </div>
+                            <div class="userLoggedInPanel" style="display: none;">
+                                <div class="userLoggedInPanelLink" onclick="document.location.href = '{% url 'article_add' %}'">
+                                    <img src="https://discordinvites.net/assets/logo/add.png" alt="add">
+                                    <span type="add">Add your article</span>
+                                </div>
+                                <div class="userLoggedInPanelLink" onclick="document.location.href = '{% url 'logout' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
+                                    <img src="https://discordinvites.net/assets/logo/exit.png" alt="exit">
+                                    <span type="logout">Logout</span>
+                                </div>
+                            </div>
+                        </div>
+                    {% else %}
+                        <a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">
+                            <div class="userLoginButton">LOGIN</div>
+                        </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+{% block script %}
+{% endblock %}
+<script>
+    const userLoggedInPanel = $(".userLoggedInPanel");
+    const userLoggedInPanelContainer = $(".userLoggedInPanelContainer");
+    const burgerContent = $(".burgerContent");
+
+    if ($(window).width() >= 810) {
+        userLoggedInPanel.css("display", "flex");
+        userLoggedInPanel.hide();
+        burgerContent.css("display", "flex");
+    }
+
+    userLoggedInPanelContainer.mouseenter(() => {
+        userLoggedInPanel.fadeIn(100);
+    });
+
+    userLoggedInPanelContainer.mouseleave(() => {
+        userLoggedInPanel.fadeOut(100);
+    });
+
+
+</script>
+</body>
+</html>

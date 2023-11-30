@@ -1,0 +1,215 @@
+
+body {
+    background-color: #2f3136;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+code {
+    background-color: #232528;
+    color: #e6e6e6;
+    border-radius: 7.5px;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    padding: 2px 5px;
+    bottom: 1px;
+    position: relative;
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+
+img {
+    -webkit-user-drag: none;
+}
+
+strong {
+    font-weight: bolder;
+    color: #dadada;
+}
+
+
+a {
+    text-decoration: none;
+    color: hsl(197, calc(1 * 100%), 47.8%);
+}
+
+.regularText {
+    color: #e6e6e6;
+}
+
+.lightText {
+    color: rgb(136, 150, 160);
+}
+
+code {
+    background-color: #232528;
+    color: #e6e6e6;
+    border-radius: 7.5px;
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+    padding: 2px 5px;
+    bottom: 1px;
+    position: relative;
+}
+
+.navBar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding-left: 50px;
+    height: 75px;
+    display: flex;
+    align-items: center;
+    background-color: #2f3136;
+    z-index: 10;
+    border-bottom: solid 1px #2a2c30
+}
+.navBar span {
+    padding: 3px;
+    font-size: 20px;
+    font-weight: 700;
+    width: 94px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.burger {
+    height: 100%
+}
+
+.navLinks {
+    position: absolute;
+    right: 0;
+    padding-right: 50px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    height: 100%
+}
+
+.userLinks {
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center
+}
+
+.userLoggedInPanelContainer {
+    margin-right: 30px;
+    margin-left: 10px;
+    padding-left: 43px;
+    padding-right: 30px;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 17px;
+    color: #e6e6e6;
+    transition: .1s ease-in
+}
+
+.userLoggedInPanelContainer img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    margin-right: 7px
+}
+
+.userLoggedInPanelContainer:hover {
+    cursor: pointer;
+    background-color: #292c31
+}
+
+.userLoggedInProfile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row
+}
+
+.userLoggedInProfilePart {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    align-items: center
+}
+
+.userLoggedInPanel {
+    position: absolute;
+    right: 80px;
+    display: none;
+    background-color: #292c31;
+    top: 75px;
+    width: 236px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center
+}
+
+.userLoggedInPanel span {
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    color: #fff;
+    font-size: 18px;
+    transition: .1s ease-in-out
+}
+
+.userLoggedInPanelLink {
+    border: 2px solid transparent;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    cursor: pointer
+}
+
+.userLoggedInPanelLink img {
+    height: 20px;
+    width: 20px;
+    margin-left: 20px
+}
+
+.userLoggedInPanelLink:hover {
+    border-left: 2px solid #3e63db;
+    background-color: #5764f1;
+    color: #6282ff
+}
+
+.userLoggedInPanelLink:hover:last-child {
+    background-color: #cf4f4f;
+    border-left: 2px solid #953c3c;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px
+}
+
+.userLoginButton {
+    margin-left: 30px;
+    margin-right: 30px;
+    background-color: #5764f1;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #e6e6e6;
+    width: 125px;
+    transition: .1s ease-in-out;
+    border-radius: 7.5px;
+    border: solid 2px #5764f1;
+}
+.userLoginButton:hover {
+    background-color: #3f48b1;
+    border: solid 2px #5764f1;
+}
