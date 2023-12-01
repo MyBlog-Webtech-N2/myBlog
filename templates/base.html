@@ -50,19 +50,14 @@
                                     <span type="add">Dashboard</span>
                                 </div>
                                 <div class="userLoggedInPanelLink"
-                                     onclick="document.location.href = '{% url 'logout' %}?next=
-                                             {% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
+                                     onclick="document.location.href = '{% url 'logout' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}'">
                                     <img src="https://discordinvites.net/assets/logo/exit.png" alt="exit">
                                     <span type="logout">Logout</span>
                                 </div>
                             </div>
                         </div>
                     {% else %}
-                        <a href="{% url 'login' %}?next=
-
-
-
-                                {% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">
+                        <a href="{% url 'login' %}?next={% if request.GET.next %}{{ request.GET.next }}{% else %}{{ request.get_full_path }}{% endif %}">
                             <div class="userLoginButton">LOGIN</div>
                         </a>
                     {% endif %}
